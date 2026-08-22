@@ -7,38 +7,86 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Audio -->
-    <audio id="bg-music" src="assets/ambient-score.mp3" loop></audio>
-
-    <div class="track-container">
-        <!-- Background Track Image (A long vertical image) -->
-        <img src="assets/track-map.jpg" class="track-bg" alt="Map">
-        
-        <!-- The Player's Vehicle -->
-        <img src="assets/car.png" id="player" alt="Player">
-
-        <!-- Level 1: Amreli -->
-        <div class="level-node" id="level-1">
-            <img src="assets/amreli-icon.png" class="node-image" alt="Amreli">
-            <div class="milestone-media">
-                <img src="assets/handloom-memory.png" alt="Early days">
-            </div>
+    <!-- The Start Screen -->
+    <div id="start-screen">
+        <div class="welcome-gallery">
+            <!-- 1. Your Profile Picture -->
+            <img src="assets/my-photo.jpg" id="intro-photo" alt="Profile">
+            
+            <!-- 2. The Solplay Tech Text Image -->
+            <img src="assets/solplay-text.png" class="intro-text-img" alt="Welcome to Solplay Tech">
+            
+            <!-- 3. Your Name Image -->
+            <img src="assets/my-name.png" class="intro-text-img" alt="Name">
+            
+            <!-- 4. Your Roll Number Image -->
+            <img src="assets/my-rollno.png" class="intro-text-img" alt="Roll Number">
+            
+            <!-- 5. The OK Button Image -->
+            <img src="assets/ok-button.png" id="ok-btn-img" alt="OK">
         </div>
-
-        <!-- Level 2: IT Industry -->
-        <div class="level-node" id="level-2">
-            <img src="assets/it-icon.png" class="node-image" alt="IT Industry">
-            <div class="milestone-media">
-                <video src="assets/coding-montage.mp4" autoplay loop muted></video>
-            </div>
-        </div>
-
-        <!-- Add Levels 3 and 4 here -->
     </div>
 
-    <!-- GSAP Animation Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Audio Elements -->
+    <audio id="bg-music" src="assets/ambient-score.mp3" loop></audio>
+    <audio id="voice-over" src=""></audio>
+
+    <!-- The Main Map -->
+    <!-- <div id="map-container">
+        <img src="assets/track-map-1.png" id="main-map" alt="World Map">
+         -->
+        <!-- Hotspots for each level. We use data-attributes to store the specific media -->
+        <!-- <div class="level-hotspot" id="spot-1" data-voice="assets/voice-level1.mp3" data-visual="assets/amreli-visual.jpg"></div>
+        <div class="level-hotspot" id="spot-2" data-voice="assets/voice-level2.mp3" data-visual="assets/it-visual.jpg"></div>
+        <div class="level-hotspot" id="spot-3" data-voice="assets/voice-level3.mp3" data-visual="assets/gate-visual.jpg"></div>
+        <div class="level-hotspot" id="spot-4" data-voice="assets/voice-level4.mp3" data-visual="assets/thuvakudi-visual.jpg"></div>
+        <div class="level-hotspot" id="spot-5" data-voice="assets/voice-level4.mp3" data-visual="assets/thuvakudi-visual.jpg"></div>
+        <div class="level-hotspot" id="spot-6" data-voice="assets/voice-level4.mp3" data-visual="assets/thuvakudi-visual.jpg"></div>
+        <div class="level-hotspot" id="spot-7" data-voice="assets/voice-level4.mp3" data-visual="assets/thuvakudi-visual.jpg"></div>
+    </div> -->
+
+    <!-- The Main Map (Updated Hotspots) -->
+    <div id="map-container">
+        <img src="assets/track-map-1.png" id="main-map" alt="World Map">
+        
+        <!-- Level 1: Amreli -->
+        <div class="level-hotspot" id="spot-1" data-voice="assets/voice-level1.mp3" 
+             data-visuals="assets/amreli-store.jpg,assets/handloom-ads.jpg,assets/amreli-streets.jpg"></div>
+             
+        <!-- Level 2: IT Industry -->
+        <div class="level-hotspot" id="spot-2" data-voice="assets/voice-level2.mp3" 
+             data-visuals="assets/ubuntu-setup.jpg,assets/database-arch.jpg,assets/team-meet.jpg"></div>
+             
+        <!-- Level 3: The Transition (GATE & NPTEL) -->
+        <div class="level-hotspot" id="spot-3" data-voice="assets/voice-level3.mp3" 
+             data-visuals="assets/gate-rank.jpg,assets/nptel-cloud-computing.jpg,assets/nptel-hci.jpg"></div>
+             
+        <!-- Level 4: Thuvakudi -->
+        <div class="level-hotspot" id="spot-4" data-voice="assets/voice-level4.mp3" 
+             data-visuals="assets/thuvakudi-campus.jpg,assets/ai-lab.jpg,assets/data-science-project.jpg"></div>
+             
+        <!-- Keep spots 5-7 similar with their respective images -->
+    </div>
+
+    <!-- The Pop-up Overlay (Added Arrows) -->
+    <div id="story-overlay">
+        <!-- Navigation Arrows (You'll need these two images in your assets folder) -->
+        <img id="prev-btn" class="nav-arrow" src="assets/arrow-left.png" alt="Previous">
+        
+        <img id="overlay-visual" src="" alt="Story Visual">
+        
+        <img id="next-btn" class="nav-arrow" src="assets/arrow-right.png" alt="Next">
+        
+        <img id="close-btn" src="assets/close-icon.png" alt="Close">
+    </div>
+
+    <!-- The Pop-up Overlay (Hidden by default) -->
+    <div id="story-overlay">
+        <img id="overlay-visual" src="" alt="Story Visual">
+        <!-- A simple back button icon -->
+        <img id="close-btn" src="assets/close-icon.png" alt="Close">
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

@@ -1,51 +1,180 @@
 body, html {
     margin: 0;
     padding: 0;
-    background-color: #050505; /* Deep cinematic black */
-    overflow-x: hidden;
-}
-
-/* This dictates how long the user has to scroll */
-.track-container {
-    position: relative;
     width: 100vw;
-    height: 400vh; /* 4 screens tall */
+    height: 100vh;
+    background-color: #000;
+    overflow: hidden; /* No scrolling allowed */
 }
 
-.track-bg {
+/* The Start Screen Overlay */
+#start-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #050505; /* Solid black background to hide the map */
+    z-index: 200; /* Forces it to sit on top of everything else */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease; /* Controls the smooth fade out */
+}
+
+#map-container {
+    position: relative;
     width: 100%;
     height: 100%;
+}
+
+.welcome-gallery {
+    display: flex;
+    flex-direction: column; /* Stacks the images vertically */
+    align-items: center;    /* Centers them horizontally */
+    gap: 20px;              /* Creates even space between each image */
+}
+
+/* Styling your profile picture */
+#intro-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Makes it a perfect circle */
+    border: 3px solid rgb(0, 255, 200); /* Adds a matching tech border */
     object-fit: cover;
+    margin-bottom: 20px;
 }
 
-#player {
-    position: fixed;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    z-index: 10;
+/* Keeps your text-based images uniform in height */
+.intro-text-img {
+    height: 40px; 
+    object-fit: contain;
 }
 
-.level-node {
-    position: absolute;
-    left: 60%;
+/* The interactive OK image */
+#ok-btn-img {
+    width: 120px;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    margin-top: 30px;
+    border-radius: 30px; /* Adjust this if your button image is circular or pill-shaped */
+    animation: pulse 2s infinite; 
+    transition: transform 0.3s;
 }
 
-.level-node:hover {
+#ok-btn-img:hover {
     transform: scale(1.1);
 }
 
-/* Position the levels down the track */
-#level-1 { top: 20vh; }
-#level-2 { top: 120vh; }
+#main-map {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensures the whole image is visible */
+}
 
-.milestone-media {
-    display: none; /* We will reveal this with JS when clicked */
+/* The clickable areas over the map */
+.level-hotspot {
     position: absolute;
-    top: -50px;
-    left: 100px;
-    width: 300px;
+    width: 4%; /* Slightly smaller so it fits nicely inside the badge */
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    
+    /* Make it highly visible: Semi-transparent cyan with a solid border */
+    background-color: rgba(0, 255, 200, 0.3); 
+    border: 2px solid rgb(0, 255, 200); 
+    
+    transition: transform 0.2s;
+    
+    /* Attach the pulsing animation */
+    animation: pulse 2s infinite;
+}
+
+.level-hotspot:hover {
+    transform: scale(1.2);
+    background-color: rgba(0, 255, 200, 0.6); /* Gets brighter when hovered */
+}
+
+/* The pulsing ring animation to draw the user's eye */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 255, 200, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(0, 255, 200, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 255, 200, 0);
+    }
+}
+
+/* Position these over the exact badges in your image. 
+   You will need to tweak these percentages slightly in Live Server */
+#spot-1 { bottom: 12.7%; left: 21.5%; }
+#spot-2 { bottom: 21%; left: 54.8%; }
+#spot-3 { bottom: 40.4%; left: 43.2%; }
+#spot-4 { bottom: 60%; left: 24%; }
+#spot-5 { bottom: 53.75%; left: 60.3%; }
+#spot-6 { bottom: 70%; left: 67.8%; }
+#spot-7 { bottom: 83.6%; left: 54.86%; }
+
+/* The full-screen story view */
+#story-overlay {
+    display: none; /* Hidden until clicked */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+}
+
+#overlay-visual {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+#close-btn {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+
+/* Navigation Arrows for Slideshow */
+.nav-arrow {
+    width: 50px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    z-index: 110;
+}
+
+.nav-arrow:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.2);
+}
+
+#prev-btn {
+    left: 5%; /* Puts it on the left side of the screen */
+}
+
+#next-btn {
+    right: 5%; /* Puts it on the right side of the screen */
+}
+
+/* Update the visual image to ensure it fits nicely between the arrows */
+#overlay-visual {
+    max-width: 80%; /* Shrink slightly to make room for arrows */
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 255, 200, 0.2); /* Adds a subtle glow */
 }
