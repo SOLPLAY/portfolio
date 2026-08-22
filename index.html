@@ -9,20 +9,28 @@
 <body>
     <!-- The Start Screen -->
     <div id="start-screen">
+        
+        <!-- Company Logo (Top Right) -->
+        <img src="assets/solplay-logo.png" id="company-logo" alt="Solplay Tech Logo">
+
+        <!-- Welcome Text (Top Center) -->
+        <img src="assets/solplay-text.png" id="welcome-text" alt="Welcome to Solplay Tech">
+
         <div class="welcome-gallery">
-            <!-- 1. Your Profile Picture -->
-            <img src="assets/my-photo.jpg" id="intro-photo" alt="Profile">
             
-            <!-- 2. The Solplay Tech Text Image -->
-            <img src="assets/solplay-text.png" class="intro-text-img" alt="Welcome to Solplay Tech">
+            <!-- NEW: Profile Card (Photo Left, Text Right) -->
+            <div class="profile-card">
+                <!-- Left Side: Profile Picture -->
+                <img src="assets/my-photo.jpg" id="intro-photo" alt="Profile">
+                
+                <!-- Right Side: Name and Roll Number Stack -->
+                <div class="profile-details">
+                    <img src="assets/my-name.png" class="intro-name-img" alt="Name">
+                    <img src="assets/my-rollno.png" class="intro-rollno-img" alt="Roll Number">
+                </div>
+            </div>
             
-            <!-- 3. Your Name Image -->
-            <img src="assets/my-name.png" class="intro-text-img" alt="Name">
-            
-            <!-- 4. Your Roll Number Image -->
-            <img src="assets/my-rollno.png" class="intro-text-img" alt="Roll Number">
-            
-            <!-- 5. The OK Button Image -->
+            <!-- The OK Button Image (Centered below the profile card) -->
             <img src="assets/ok-button.png" id="ok-btn-img" alt="OK">
         </div>
     </div>
@@ -63,6 +71,18 @@
              
         <!-- Level 4: Thuvakudi -->
         <div class="level-hotspot" id="spot-4" data-voice="assets/voice-level4.mp3" 
+             data-visuals="assets/thuvakudi-campus.jpg,assets/ai-lab.jpg,assets/data-science-project.jpg"></div>
+
+        <!-- Level 4: Thuvakudi -->
+        <div class="level-hotspot" id="spot-5" data-voice="assets/voice-level4.mp3" 
+             data-visuals="assets/thuvakudi-campus.jpg,assets/ai-lab.jpg,assets/data-science-project.jpg"></div>
+
+        <!-- Level 4: Thuvakudi -->
+        <div class="level-hotspot" id="spot-6" data-voice="assets/voice-level4.mp3" 
+             data-visuals="assets/thuvakudi-campus.jpg,assets/ai-lab.jpg,assets/data-science-project.jpg"></div>
+
+        <!-- Level 4: Thuvakudi -->
+        <div class="level-hotspot" id="spot-7" data-voice="assets/voice-level4.mp3" 
              data-visuals="assets/thuvakudi-campus.jpg,assets/ai-lab.jpg,assets/data-science-project.jpg"></div>
              
         <!-- Keep spots 5-7 similar with their respective images -->

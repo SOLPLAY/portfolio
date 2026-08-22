@@ -7,6 +7,37 @@ body, html {
     overflow: hidden; /* No scrolling allowed */
 }
 
+/* Styling the Company Logo - Top Right */
+#company-logo {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    height: 100px; /* Increased size for better visibility */
+    object-fit: contain;
+    z-index: 210; /* Ensures it stays on top of everything */
+    filter: drop-shadow(0 0 15px rgba(0, 255, 200, 0.4));
+}
+
+/* Optional: Add a little extra margin to the bottom of the welcome text 
+   so it doesn't crowd your profile picture */
+.intro-text-img:first-child {
+    margin-bottom: 20px;
+    height: 60px; /* Makes the welcome text a bit larger than your name/roll no */
+}
+
+/* Styling the Welcome Text - Top Center */
+#welcome-text {
+    position: absolute;
+    top: 40px; /* Distance from the top of the screen */
+    left: 50%;
+    transform: translateX(-50%); /* This perfectly centers it horizontally */
+    height: 200px; /* Much bigger! Adjust this number if it's too large or small */
+    width: auto;
+    max-width: 80%; /* Prevents it from bleeding off the edge on small screens */
+    object-fit: contain;
+    z-index: 210;
+}
+
 /* The Start Screen Overlay */
 #start-screen {
     position: fixed;
@@ -30,24 +61,47 @@ body, html {
 
 .welcome-gallery {
     display: flex;
-    flex-direction: column; /* Stacks the images vertically */
-    align-items: center;    /* Centers them horizontally */
-    gap: 20px;              /* Creates even space between each image */
+    flex-direction: column; 
+    align-items: center;    
+    gap: 50px; /* Space between the entire profile block and the OK button */
+    margin-top: 90px; /* Pushes everything down so it doesn't overlap your massive welcome text */
+}
+
+/* This creates the side-by-side layout */
+.profile-card {
+    display: flex;
+    flex-direction: row; 
+    align-items: center; /* Keeps the photo and text vertically aligned with each other */
+    gap: 30px; /* Space between your photo and the text */
+}
+
+/* This stacks your name and roll number on top of each other */
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligns the text images to the left edge of their box */
+    gap: 5px; /* Space between the name and roll number */
 }
 
 /* Styling your profile picture */
 #intro-photo {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%; /* Makes it a perfect circle */
-    border: 3px solid rgb(0, 255, 200); /* Adds a matching tech border */
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid rgb(0, 255, 200);
     object-fit: cover;
-    margin-bottom: 20px;
+    /* Removed the bottom margin since we control spacing with 'gap' now */
 }
 
 /* Keeps your text-based images uniform in height */
-.intro-text-img {
-    height: 40px; 
+.intro-name-img {
+    height: 90px; 
+    object-fit: contain;
+}
+
+/* Keeps your text-based images uniform in height */
+.intro-rollno-img {
+    height: 70px; 
     object-fit: contain;
 }
 
