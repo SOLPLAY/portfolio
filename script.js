@@ -98,7 +98,7 @@ document.querySelectorAll('.level-hotspot').forEach(spot => {
         
         // 3. Audio management
         bgMusic.volume = 0.05;  // Drop ambient music to just 5% so it's a whisper
-        voiceOver.volume = 1.0; // Force voiceover to 100% maximum volume
+        voiceOver.volume = 1.5; // Force voiceover to 100% maximum volume
         voiceOver.src = voiceSrc;
         voiceOver.play();
         
