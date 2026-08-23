@@ -1,8 +1,8 @@
 const bgMusic = document.getElementById('bg-music');
 const voiceOver = document.getElementById('voice-over');
 const overlay = document.getElementById('story-overlay');
-const overlayVisual = document.getElementById('overlay-visual');
 const closeBtn = document.getElementById('close-btn');
+
 // Start music and hide the start screen when the 'OK' image is clicked
 const startScreen = document.getElementById('start-screen');
 const okBtnImg = document.getElementById('ok-btn-img');
@@ -10,7 +10,7 @@ const okBtnImg = document.getElementById('ok-btn-img');
 okBtnImg.addEventListener('click', () => {
     // 1. Start the ambient audio
     if (bgMusic.paused) {
-        bgMusic.volume = 0.3;
+        bgMusic.volume = 0.025;
         bgMusic.play();
     }
     
@@ -21,37 +21,6 @@ okBtnImg.addEventListener('click', () => {
     setTimeout(() => {
         startScreen.style.display = 'none';
     }, 1000);
-});
-
-// Start background music on first click anywhere on the page
-// document.body.addEventListener('click', () => {
-//     if(bgMusic.paused) {
-//         bgMusic.volume = 1.0;
-//         bgMusic.play();
-//     }
-// }, { once: true });
-
-//Handle clicking a level
-document.querySelectorAll('.level-hotspot').forEach(spot => {
-    spot.addEventListener('click', (e) => {
-        // Prevent the body click from triggering again
-        e.stopPropagation(); 
-        
-        // 1. Get the specific files for this level
-        const visualSrc = spot.getAttribute('data-visual');
-        const voiceSrc = spot.getAttribute('data-voice');
-        
-        // 2. Set the overlay visual
-        overlayVisual.src = visualSrc;
-        
-        // 3. Audio management
-        bgMusic.volume = 0.2; // Drop background music to 20%
-        voiceOver.src = voiceSrc;
-        voiceOver.play();
-        
-        // 4. Show the overlay
-        overlay.style.display = 'flex';
-    });
 });
 
 // Slideshow Tracking Variables
@@ -96,9 +65,9 @@ document.querySelectorAll('.level-hotspot').forEach(spot => {
         prevBtn.style.display = showArrows;
         nextBtn.style.display = showArrows;
         
-        // 3. Audio management
-        bgMusic.volume = 0.05;  // Drop ambient music to just 5% so it's a whisper
-        voiceOver.volume = 1.5; // Force voiceover to 100% maximum volume
+        // Audio management
+        bgMusic.volume = 0.018;  // Drop ambient music so it's a whisper
+        voiceOver.volume = 1.0; // MAX volume is 1.0
         voiceOver.src = voiceSrc;
         voiceOver.play();
         
@@ -120,13 +89,18 @@ prevBtn.addEventListener('click', (e) => {
     updateMediaDisplay(currentImages[currentIndex]);
 });
 
-// Important: Stop video when overlay is closed
+// Important: Stop video and voice when overlay is closed
 closeBtn.addEventListener('click', () => {
     voiceOver.pause();
     voiceOver.currentTime = 0;
-    bgMusic.volume = 0.3;
+    bgMusic.volume = 0.02; // Bring background music back up
     overlay.style.display = 'none';
     
     // Stop the video so it doesn't keep playing in the background
     overlayVideo.pause();
+});
+
+// Automatically restore background volume when the voiceover finishes playing
+voiceOver.addEventListener('ended', () => {
+    bgMusic.volume = 0.02;
 });
