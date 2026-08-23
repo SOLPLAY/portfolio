@@ -186,10 +186,14 @@ body, html {
     justify-content: center;
 }
 
-#overlay-visual {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 10px;
+/* Styles both images and videos in the slideshow */
+.media-display {
+    display: none; /* Hidden by default until JS decides which one to show */
+    max-width: 92%; 
+    max-height: 95%;
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(0, 255, 200, 0.2); 
+    object-fit: contain;
 }
 
 #close-btn {

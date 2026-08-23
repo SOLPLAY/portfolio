@@ -21,7 +21,7 @@
             <!-- NEW: Profile Card (Photo Left, Text Right) -->
             <div class="profile-card">
                 <!-- Left Side: Profile Picture -->
-                <img src="assets/my-photo.jpg" id="intro-photo" alt="Profile">
+                <img src="assets/my-photo.jpeg" id="intro-photo" alt="Profile">
                 
                 <!-- Right Side: Name and Roll Number Stack -->
                 <div class="profile-details">
@@ -58,45 +58,46 @@
         <img src="assets/track-map-1.png" id="main-map" alt="World Map">
         
         <!-- Level 1: Amreli -->
-        <div class="level-hotspot" id="spot-1" data-voice="assets/voice-level1.mp3" 
-             data-visuals="assets/amreli-store.jpg,assets/handloom-ads.jpg,assets/amreli-streets.jpg"></div>
+        <div class="level-hotspot" id="spot-1" data-voice="assets/voice-level1.wav" 
+             data-visuals="assets/Amreli-1.jpeg,assets/Amreli-2.jpg,assets/Amreli-3.jpeg,assets/Amreli-4.jpg,assets/Amreli-1.mp4"></div>
              
-        <!-- Level 2: IT Industry -->
-        <div class="level-hotspot" id="spot-2" data-voice="assets/voice-level2.mp3" 
-             data-visuals="assets/ubuntu-setup.jpg,assets/database-arch.jpg,assets/team-meet.jpg"></div>
+        <!-- Level 2: 7-10 -->
+        <div class="level-hotspot" id="spot-2" data-voice="assets/voice-level2.wav" 
+             data-visuals="assets/junagadh.png,assets/school.png,assets/football.png,assets/basketball.png,assets/chess.png,
+             assets/jarvis.png,assets/banglore.png"></div>
              
-        <!-- Level 3: The Transition (GATE & NPTEL) -->
-        <div class="level-hotspot" id="spot-3" data-voice="assets/voice-level3.mp3" 
-             data-visuals="assets/gate-rank.jpg,assets/nptel-cloud-computing.jpg,assets/nptel-hci.jpg"></div>
+        <!-- Level 3: kota -->
+        <div class="level-hotspot" id="spot-3" data-voice="assets/voice-level3.wav" 
+             data-visuals="assets/Kota.png,assets/Resonance.png"></div>
              
-        <!-- Level 4: Thuvakudi -->
+        <!-- Level 4: pune btech -->
         <div class="level-hotspot" id="spot-4" data-voice="assets/voice-level4.mp3" 
              data-visuals="assets/thuvakudi-campus.jpg,assets/ai-lab.jpg,assets/data-science-project.jpg"></div>
 
-        <!-- Level 4: Thuvakudi -->
-        <div class="level-hotspot" id="spot-5" data-voice="assets/voice-level4.mp3" 
+        <!-- Level 5: pune company -->
+        <div class="level-hotspot" id="spot-5" data-voice="assets/voice-level5.mp3" 
              data-visuals="assets/thuvakudi-campus.jpg,assets/ai-lab.jpg,assets/data-science-project.jpg"></div>
 
-        <!-- Level 4: Thuvakudi -->
-        <div class="level-hotspot" id="spot-6" data-voice="assets/voice-level4.mp3" 
+        <!-- Level 6: nitt -->
+        <div class="level-hotspot" id="spot-6" data-voice="assets/voice-level6.mp3" 
              data-visuals="assets/thuvakudi-campus.jpg,assets/ai-lab.jpg,assets/data-science-project.jpg"></div>
 
-        <!-- Level 4: Thuvakudi -->
-        <div class="level-hotspot" id="spot-7" data-voice="assets/voice-level4.mp3" 
+        <!-- Level 7: goals -->
+        <div class="level-hotspot" id="spot-7" data-voice="assets/voice-level7.mp3" 
              data-visuals="assets/thuvakudi-campus.jpg,assets/ai-lab.jpg,assets/data-science-project.jpg"></div>
              
         <!-- Keep spots 5-7 similar with their respective images -->
     </div>
 
-    <!-- The Pop-up Overlay (Added Arrows) -->
+    <!-- The Pop-up Overlay -->
     <div id="story-overlay">
-        <!-- Navigation Arrows (You'll need these two images in your assets folder) -->
         <img id="prev-btn" class="nav-arrow" src="assets/arrow-left.png" alt="Previous">
         
-        <img id="overlay-visual" src="" alt="Story Visual">
+        <!-- NEW: We now have BOTH an image and a video element -->
+        <img id="overlay-img" class="media-display" src="" alt="Story Visual">
+        <video id="overlay-video" class="media-display" src="" autoplay loop muted></video>
         
         <img id="next-btn" class="nav-arrow" src="assets/arrow-right.png" alt="Next">
-        
         <img id="close-btn" src="assets/close-icon.png" alt="Close">
     </div>
 
